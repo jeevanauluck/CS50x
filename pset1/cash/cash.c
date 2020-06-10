@@ -4,8 +4,14 @@
 int main(void)
 {
     float change;
-    int quarters;int dimes; int nickels; int pennies;
-    int i = 0; int j = 0; int k = 0; int l = 0; //counter variables
+    int quarters;
+    int dimes;
+    int nickels;
+    int pennies;
+    int i = 0; //counter variables
+    int j = 0;
+    int k = 0;
+    int l = 0;
     do
     {
         change = get_float("How much change is owed? Note: Please enter in the dollar amount without the dollar sign ($). "); //inputs for change
@@ -36,7 +42,7 @@ int main(void)
     do //nickel fcn
     {
         k++; //stops nickel fcn
-        nickels = floor((cents - ((quarters * 25) + (dimes * 10))) / 5 );
+        nickels = floor((cents - ((quarters * 25) + (dimes * 10))) / 5);
         //printf("%d\n", nickels);
     }
     while (k < 1);
@@ -45,7 +51,7 @@ int main(void)
     do //pennies fcn
     {
         l++; //stops pennies fcn
-        pennies = floor(((cents - ((quarters * 25) + (dimes * 10) + (nickels * 5))) / 1 ));
+        pennies = floor(((cents - ((quarters * 25) + (dimes * 10) + (nickels * 5))) / 1));
         //printf("%d\n", pennies);
     }
     while (l < 1);
