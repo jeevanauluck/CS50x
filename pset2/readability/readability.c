@@ -12,9 +12,9 @@ void coleman_liau_formula(string text);
 int main(void)
 {
     string text = get_string("Text: ");
-    letter_counter(text);
-    word_counter(text);
-    sentence_counter(text);
+    //letter_counter(text); uncommented or commented seems to both work
+    //word_counter(text);
+    //sentence_counter(text);
     coleman_liau_formula(text);
     return 0;
 }
