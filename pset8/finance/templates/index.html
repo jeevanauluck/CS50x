@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Stock Symbol</th>
+          <th scope="col">Stock Name</th>
+          <th scope="col">Shares</th>
+          <th scope="col">Price</th>
+          <th scope="col">Total Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for stock in stocks_updated %}
+          <tr>
+              <!-- either syntax seems to work w/ jinja [] or . notation-->
+              <th scope="row">{{ stock['symbol'] }}</th>
+              <td>{{ stock.name }}</td>
+              <td>{{ stock.shares }}</td>
+              <td>{{ stock.price }}</td>
+              <td>{{ stock.total_value }}</td>
+          </tr>
+        {% endfor %}
+        <tr>
+          <th scope="row">CASH</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{ current_cash }}</td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <th>{{ cash_and_total_values }}</th>
+        </tr>
+      </tbody>
+    </table>
+{% endblock %}

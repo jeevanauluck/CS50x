@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Stock Symbol</th>
+          <th scope="col">Price</th>
+          <th scope="col">Shares</th>
+          <th scope="col">Action</th>
+          <th scope="col">Transaction Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {# either syntax ([] or . notation) seems to work w/ jinja #}
+        {% for transaction in history %}
+          <tr>
+              <th scope="row">{{ transaction.stock }}</th>
+              <td>{{ transaction.price }}</td>
+              <td>{{ transaction.shares }}</td>
+              {% if transaction.action == "SOLD" %}
+                <td style="color: red;">{{ transaction.action }}</td>
+              {% else %}
+                <td style="color: green;">{{ transaction.action }}</td>
+              {% endif %}
+              <td>{{ transaction.dayandtime }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}
